@@ -1,24 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { Diagnostic } from 'ionic-native';
+//import { Diagnostic } from 'ionic-native';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
-import { Rollbar } from '@ionic-native/rollbar';
+import { Calendar } from '@ionic-native/calendar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PhotoPage } from '../pages/photo/photo';
+import { MainPage } from '../pages/main-page/main-page';
+import { MainTabsControllerPage } from '../pages/main-tabs-controller/main-tabs-controller';
+import { HangarMeetingsPage } from '../pages/hangar-meetings/hangar-meetings';
+import { SpecialEventsPage } from '../pages/special-events/special-events';
+import { ProtocolsPage } from '../pages/protocols/protocols';
+import { AdministrationKeyGovPage } from '../pages/administration-key-gov/administration-key-gov';
+import { NeedridePage } from '../pages/needride/needride';
+import { KeymanPage } from '../pages/keyman/keyman';
+import { GovernorPage } from '../pages/governor/governor';
+
 
 import { DatabaseProvider } from '../providers/database';
 import { PreloaderProvider } from '../providers/preloader';
 import { AuthProvider } from '../providers/auth/auth';
 import { EventProvider } from '../providers/event/event';
 import { ProfileProvider } from '../providers/profile/profile';
+
+import { GoogleMaps,
+         GoogleMapsEvent,
+         GoogleMapOptions,
+         CameraPosition,
+         MarkerOptions,
+         Marker } from '@ionic-native/google-maps';
+import { YtProvider } from '../providers/yt/yt';
 
 
 class CameraMock extends Camera {
@@ -39,7 +57,16 @@ YgYW55IGNhcm5hbCBwbGVhc3VyZS4=`);
   declarations: [
     MyApp,
     HomePage,
-    PhotoPage
+    PhotoPage,
+    MainPage,
+    MainTabsControllerPage,
+    HangarMeetingsPage,
+    SpecialEventsPage,
+    ProtocolsPage,
+    AdministrationKeyGovPage,
+    NeedridePage,
+    KeymanPage,
+    GovernorPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +76,16 @@ YgYW55IGNhcm5hbCBwbGVhc3VyZS4=`);
   entryComponents: [
     MyApp,
     HomePage,
-    PhotoPage
+    PhotoPage,
+    MainPage,
+    MainTabsControllerPage,
+    HangarMeetingsPage,
+    SpecialEventsPage,
+    ProtocolsPage,
+    AdministrationKeyGovPage,
+    NeedridePage,
+    KeymanPage,
+    GovernorPage
   ],
   providers: [
     StatusBar,
@@ -62,11 +98,12 @@ YgYW55IGNhcm5hbCBwbGVhc3VyZS4=`);
     AuthProvider,
     EventProvider,
     ProfileProvider,
-    Rollbar,
     File,
     Transfer,
     FilePath,
-    Camera
+    Calendar,
+    YtProvider,
+    GoogleMaps
   ]
 })
 export class AppModule {}

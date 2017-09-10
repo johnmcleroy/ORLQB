@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
 
 @Injectable()
@@ -25,7 +25,7 @@ export class DatabaseProvider {
             items.forEach((item) =>
             {
                members.push({
-	              id        : item.key,
+	              /*id        : item.key,
 	              members   : item.val().members,
 	              origindate: item.val().origindate,
 	              duration  : item.val().duration,
@@ -34,6 +34,34 @@ export class DatabaseProvider {
 	              rating    : item.val().rating,
 	              summary   : item.val().summary,
 	              title     : item.val().title
+                 */
+                 id        : item.key,
+                 category  : item.val().Category,
+                 notes     : item.val().Notes,
+                 phone1    : item.val().Phone1,
+                 phone1Type: item.val().Phone1Type,
+                 phone2    : item.val().Phone2,
+                 phone2Type: item.val().Phone2Type,
+                 bDay      : item.val().bDay,
+                 displayName: item.val().displayName,
+                 eMail1    : item.val().eMail1,
+                 eMail2    : item.val().eMail2,
+                 emerCtc   : item.val().emercontact,
+                 fName     : item.val().firstName,
+                 hCity     : item.val().homeCity,
+                 hCountry  : item.val().homeCountry,
+                 hPostCode : item.val().homePostalCode,
+                 hState    : item.val().homeState,
+                 hStreet1  : item.val().homeStreet,
+                 hStreet2  : item.val().homeStreet2,
+                 hStreet3  : item.val().homeStreet3,
+                 initdate  : item.val().initDate,
+                 hangar    : item.val().memberHangar,
+                 photo     : item.val().memberPhoto,
+                 nickName  : item.val().nickName,
+                 prefEmail : item.val().prefEmail,
+                 qbNum     : item.val().qbNumber,
+                 qbStat    : item.val().qbStatus
 	           });
             });
 
@@ -80,7 +108,7 @@ export class DatabaseProvider {
    {
       return new Promise((resolve) =>
       {
-         var updateRef = firebase.database().ref('films').child(id);
+         var updateRef = firebase.database().ref('members').child(id);
 	      updateRef.update(memberObj);
          resolve(true);
       });

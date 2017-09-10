@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Hangar Meetings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page12">
+  <ion-list id="hangarMeetings-list6">
+    <ion-item color="none" on-click="goToMeetingDetails()" id="hangarMeetings-list-item17">
+      Item 1
+    </ion-item>
+    <ion-item color="none" id="hangarMeetings-list-item18">
+      Item 2
+    </ion-item>
+    <ion-item color="none" id="hangarMeetings-list-item19">
+      Item 3
+    </ion-item>
+    <ion-item id="hangarMeetings-list-item-container2">
+      <div id="hangarMeetings-markdown6" class="show-list-numbers-and-dots">
+        <p style="margin-top:0px;color:#000000;">
+          Some friendly
+          <strong>
+            markdown
+          </strong>
+        </p>
+      </div>
+    </ion-item>
+    <ion-item id="hangarMeetings-select1">
+      <ion-label>
+        Select Hangar
+      </ion-label>
+      <ion-select name="">
+        <ion-option>
+          ABQ
+        </ion-option>
+        <ion-option>
+          DCA
+        </ion-option>
+        <ion-option></ion-option>
+      </ion-select>
+    </ion-item>
+    <!-- Calendar goes here -->
+    <ion-item>
+      <button button class="button" (click)="openCalendar2()">
+        Show Calendar
+      </button>
+      <calendar
+    </ion-item>
+  </ion-list>
+</ion-content>

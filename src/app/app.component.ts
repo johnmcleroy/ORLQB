@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { Rollbar } from '@ionic-native/rollbar';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
 import { HomePage } from '../pages/home/home';
-//import { PhotoPage } from '../pages/photo/photo';
+import { MainPage } from '../pages/main-page/main-page';
+import { MainTabsControllerPage } from '../pages/main-tabs-controller/main-tabs-controller';
+import { NeedridePage } from '../pages/needride/needride';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,7 +17,7 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   rootPage: any;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, rollbar: Rollbar) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
      // Initialize Firebase
   var config = {
@@ -32,10 +33,13 @@ export class MyApp {
   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
     if (!user) {
       this.rootPage = 'login';
+
       unsubscribe();
 
-    } else {
-      this.rootPage = HomePage;
+    } else { //there is a user and so we let them into the app
+      //this.rootPage = HomePage;  IONIC USES 'HomePage' as its semantic name for a templated root page
+        this.rootPage = MainTabsControllerPage;
+
       unsubscribe();
     }
     
@@ -44,7 +48,6 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      rollbar.init();
       statusBar.styleDefault();
       splashScreen.hide();
 

@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { IonicPage,
-		 NavController,
-		 NavParams,
-		 Loading,
-		 LoadingController,
-		 AlertController } from 'ionic-angular';
+    		 NavController,
+    		 NavParams,
+    		 Loading,
+    		 LoadingController,
+    		 AlertController } from 'ionic-angular';
 import { EmailValidator } from '../../validators/email';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
-import { HomePage } from '../home/home';
-
+//import { HomePage } from '../home/home';
+import { MainPage } from '../main-page/main-page';
+ 
 @IonicPage({
 	name: 'login'
 })
@@ -44,7 +45,7 @@ export class LoginPage {
   		this.authProvider.loginUser(this.loginForm.value.email, this.loginForm.value.password)
   		.then( authData => {
   			this.loading.dismiss().then( () => {
-  				this.navCtrl.setRoot(HomePage);
+  				this.navCtrl.setRoot(MainPage);
   			});
   		}, error => {
   			this.loading.dismiss().then( () => {

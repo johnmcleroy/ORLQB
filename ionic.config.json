@@ -1,6 +1,6 @@
 {
   "name": "ORLQB",
-  "app_id": "",
+  "app_id": "8ec21c73",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

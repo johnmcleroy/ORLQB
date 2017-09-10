@@ -1,0 +1,1 @@
+cordova plugin add https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps --variable API_KEY_FOR_ANDROID="AIzaSyC29566KaPT2I1pWdJStzIETXabDtYRzxo" --variable API_KEY_FOR_IOS="AIzaSyDZ7cotmHQHLvJc5pPsD-Oxmk83CkrhJrU"
